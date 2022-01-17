@@ -27,7 +27,6 @@ int main(void)
 			int v1 = (x3*x3)+(y3*y3);
 			int r3 = r1 + r2;
 			int v2 = r3 * r3;
-			int rg1 = (r1*r1), rg2 = (r2*r2);
 			if(v1 ==0)
 			{
 				if(r1 == r2)
@@ -39,16 +38,13 @@ int main(void)
 					array[t] = 0;
 				}
 			}
-			else if(v1 < rg1 || v1 < rg2)
+			else if((r1 - r2)*(r1 - r2) == v1 || (r2 - r1) * (r2 - r1) == v1)
 			{
-				if(v1 + rg1 == rg2 || v1 + rg2 == rg1)
-				{
-					array[t] = 1;
-				}
-				else
-				{
-					array[t] = 0;
-				}
+				array[t] = 1;
+			}
+			else if((r1 - r2)*(r1 - r2) > v1 || (r2 - r1) * (r2 - r1) > v1)
+			{
+				array[t] = 0;
 			}
 			else
 			{
