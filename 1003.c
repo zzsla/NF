@@ -21,6 +21,7 @@ int main(void)
 
 			one = fibonacci(N);
 
+			//printf("%i", one);
 			zero = fibonacci(N-1);
 
 			testcase[t][0] = zero;
@@ -42,8 +43,17 @@ int fibonacci(int n){
 		return 0;
 	}else if (n == 1){
 		return 1;
+	}else if (n == 2){
+		return 1;
 	}else{
-		return fibonacci(n-1) +fibonacci(n-2);
+		int a =  1, b = 1;
+		for(int x = 2 ; x < n ; x++){
+			if(a < b) a = a + b;
+			else if(a > b ) b = a + b;
+			else a = a + b;
+		}
+		if( a > b) return a;
+		else return b;
 	}
 }
 
