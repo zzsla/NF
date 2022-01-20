@@ -45,11 +45,16 @@ int main(void)
 					}
 					h[t][p][0]=pointcheck(planet[t][p][0],planet[t][p][1],planet[t][p][2],x1,y1);
 					h[t][p][1]=pointcheck(planet[t][p][0],planet[t][p][1],planet[t][p][2],x2,y2);
-					if(h[t][p][0] > h[t][p][1] || h[t][p][1] > h[t][p][0])
+					if(h[t][p][0] == 1 && h[t][p][1] == 1)
 					{
 						h[t][p][2] = 0;
 					}
-					else h[t][p][2] = 1;
+					else if (h[t][p][0] == 1 || h[t][p][1] == 1)
+					{
+						h[t][p][2] = 1;
+					}
+					else h[t][p][2] = 0;
+					printf("%i", h[t][p][2]);
 					ans += h[t][p][2];
 				}
 				array[t] = ans;
