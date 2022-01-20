@@ -45,7 +45,11 @@ int main(void)
 					}
 					h[t][p][0]=pointcheck(planet[t][p][0],planet[t][p][1],planet[t][p][2],x1,y1);
 					h[t][p][1]=pointcheck(planet[t][p][0],planet[t][p][1],planet[t][p][2],x2,y2);
-					h[t][p][2] = h[t][p][0] + h[t][p][1];
+					if(h[t][p][0] > h[t][p][1] || h[t][p][1] > h[t][p][0])
+					{
+						h[t][p][2] = 0;
+					}
+					else h[t][p][2] = 1;
 					ans += h[t][p][2];
 				}
 				array[t] = ans;
