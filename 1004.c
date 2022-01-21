@@ -13,9 +13,6 @@ int main(void)
 	scanf("%i", &T);
 	int array[T];
 
-//	int palnet[p][3]; // 행성계 저장공간
-//	bool h[p][3];
-
 	for(int t = 0; t < T; t++){
 		scanf("%i %i %i %i",&x1,&y1,&x2,&y2);
 		if(x1 > 1000 || x1 < -1000 || y1 > 1000 || y1 < -1000 || x2 > 1000 || x2 < -1000 || y2 > 1000 || y2 < -1000)
@@ -30,7 +27,7 @@ int main(void)
 			{
 				int p;
 				int ans;
-				int planet[T][n][3]; // 행겅계 저장공간
+				int planet[T][n][3]; // 행성계 저장공간
 				bool h[T][n][3]; //행성계에 있는지 없는지 대한 값 저장공간
 
 				for(p = 0; p < n ;p++){
