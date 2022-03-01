@@ -8,9 +8,9 @@ int main(void)
 	printf("\n");
 	printf("( 0 )\"\"\"\\ ");
 	printf("\n");
-	printf("|\"^\"'    | ");
+	printf("|\"^\"`    | ");
 	printf("\n");
-	printf("||_/=\\\\__| ");
+	printf("||_/=\\\\__|");
 
 	return 0;
 }
