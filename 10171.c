@@ -33,7 +33,7 @@ int main(void)
 	write(1,&blank,1);
 	write(1,&parenthesisL,1);
 	write(1,&blank,1);
-	write(1,&apostrophe,1);
+	write(1,"'",1);
 	write(1,&parenthesisR,1);
 	write(1,&blank,1);
 	write(1,"\n",1);
