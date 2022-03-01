@@ -25,6 +25,7 @@ int main(void)
 	write(1,&blank,1);
 	write(1,&s,1);
 	write(1,&rs,1);
+	write(1,&blank,1);
 	write(1,"\n",1);
 	write(1,&blank,1);
 	write(1,&parenthesisR,1);
@@ -34,6 +35,7 @@ int main(void)
 	write(1,&blank,1);
 	write(1,&apostrophe,1);
 	write(1,&parenthesisR,1);
+	write(1,&blank,1);
 	write(1,"\n",1);
 	write(1,&parenthesisL,1);
 	write(1,&blank,1);
@@ -42,6 +44,7 @@ int main(void)
 	write(1,&blank,1);
 	write(1,&blank,1);
 	write(1,&parenthesisR,1);
+	write(1,&blank,1);
 	write(1,"\n",1);
 	write(1,&blank,1);
 	write(1,&rs,1);
