@@ -8,20 +8,23 @@ int main(void)
 	getchar();
 	for(int i = 0; i < C; i++)
 	{
-		int n[1000] = {};
+		int n[1004] = {};
 		int count = 0;
 		float tmp = 0;
 		float tmp2 = 0;
 		int nu = 0;
+		char p = '%';
 		count = in_valve(n);
 		for(int j = 1; j < count; j++)
-			tmp +=n[j];
+			tmp += n[j];
 		tmp /= n[0];
 		for(int j = 1; j < count; j++)
 			if(tmp < n[j]) nu++;
 		tmp2 = nu *100;
 		tmp = tmp2 / n[0];
-		printf("%6.3f\n", tmp);
+		printf("%6.3f", tmp);
+		printf("%c",p);
+		printf("\n");
 
 	}
 	return 0;
@@ -35,5 +38,5 @@ int in_valve(int* n)
 		scanf("%i",&n[i]);
 		if(getchar() == '\n') break;
 	}
-	return i;
+	return i+1;
 }
