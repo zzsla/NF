@@ -4,7 +4,7 @@ int valve(int tmp);
 int main(void)
 {
 	int n = 1;
-	int N[10000] = {};
+	char N[10000] = {};
 	int tmp = 0;
 	for(int i = 0; i <= 10000; i++)
 	{
@@ -15,7 +15,6 @@ int main(void)
 			{
 				tmp = j + 1;
 				tmp = valve(tmp);
-	//			printf("%i ",tmp);
 				N[--tmp] = 1;
 				j = tmp;
 			}
