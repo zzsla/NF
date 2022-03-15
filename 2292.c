@@ -8,7 +8,7 @@ int main(void)
 	scanf("%i",&N);
 	if(!(1 <= N && N <= 1000000000)) return 1;
 
-	while(room <= N)
+	while(room < N)
 	{
 		i++;
 		room = room + (6 * i);
