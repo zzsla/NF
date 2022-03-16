@@ -33,5 +33,5 @@ void find_room(int H, int W, int N)
 	}
 	division = i / 10;
 	remainder = i % 10;
-	printf("%i%i%i", j, division, remainder);
+	printf("%i%i%i\n", j, division, remainder);
 }
