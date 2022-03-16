@@ -7,7 +7,7 @@ int main(void)
 	int check = 5, tmp = 5;
 	scanf("%i", &N);
 	if(!(3 <= N && N <= 5000)) return 1;
-	if(N >= 5)
+	if(N > 5)
 	{
 		int i = 1, j;
 		while(tmp < N)
@@ -33,7 +33,7 @@ int main(void)
 		tmp = N / 3;
 		printf("%i", tmp);
 	}
-	else if(N == 3) printf("1");
+	else if(N == 3 || N == 5) printf("1");
 	else printf("-1");
 
 	return 0;
