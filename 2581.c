@@ -6,6 +6,7 @@ int main(void)
 	scanf("%i %i", &M, &N);
 	int tmp;
 	int result = 0, min;
+	if(M == 1) M = 2;
 	while(M <= N)
 	{
 		for(int i = 2; i < M; i++)
@@ -22,9 +23,7 @@ int main(void)
 	}
 	if(result == 0) printf("-1");
 	else
-	{
 		printf("%i\n%i", result, min);
-	}
 
 	return 0;
 }
