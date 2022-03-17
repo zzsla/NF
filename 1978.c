@@ -8,7 +8,7 @@ int main (void)
 	n = (char *)malloc(sizeof(char) * 1000);
 	n[0] = 1;
 	n[1] = 1;
-	for(int i = 2; i < 1001; i++)
+	for(int i = 2; i < 1001; )
 	{
 		int j = 2;
 		while((i*j) < 1001)
