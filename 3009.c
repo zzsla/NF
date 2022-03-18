@@ -1,4 +1,5 @@
 #include <stdio.h>
+int check(int n[4]);
 
 int main(void)
 {
@@ -7,10 +8,20 @@ int main(void)
 
 	for(int i = 0; i < 3; i++)
 		scanf("%i %i", &x[i], &y[i]);
-	x[3] = ((x[0] - x[1]) && (x[0] - x[2])) ? x[0] : x[1];
-	y[3] = ((y[0] - y[1]) && (y[0] - y[2])) ? y[0] : y[1];
-
+	x[3] = check(x);
+	y[3] = check(y);
 	printf("%i %i", x[3], y[3]);
 
 	return 0;
+}
+
+int check(int n[4])
+{
+	int a,b,c;
+	a = n[0] - n[1];
+	b = n[0] - n[2];
+	c = n[1] - n[2];
+	if(a && b) return n[0];
+	else if(a && c) return n[1];
+	else return n[2];
 }
