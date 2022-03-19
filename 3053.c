@@ -1,7 +1,6 @@
 #include <stdio.h>
 #define _USE_MATH_DEFINES
 #include <math.h>
-//const float pi = 3.141593;
 
 int main(void)
 {
@@ -17,4 +16,3 @@ int main(void)
 
 	return 0;
 }
-
