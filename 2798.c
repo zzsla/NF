@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main(void)
 {
@@ -19,8 +18,8 @@ int main(void)
 			{
 				a = n[i] + n[j] + n[k];
 				c = M - a;
-				if(c < 0) break;
-				if((M - a) < (M - b)) b = a;
+				if(c >= 0)
+					if((M - a) < (M - b)) b = a;
 			}
 	printf("%i", b);
 
