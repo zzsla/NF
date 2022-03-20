@@ -12,16 +12,15 @@ int main(void)
 		scanf("%i", &n[i]);
 		if(n[i] > 100000) return 1; //입력값이 오류
 	}
-	int a = 0, b = 0; //tmp
+	int a = 0, b = 0, c; //tmp
 	for(int i = 0; i < N - 2; i++) //Brute force
 		for(int j = i+1; j < N - 1; j++)
 			for(int k = j+1; k < N; k++)
 			{
-				if(i == 0 && j == 1 && k == 2)
-					b = n[i] + n[j] + n[k];
 				a = n[i] + n[j] + n[k];
-				if(abs(a - M) < abs(b - M)) // abs : the absolute value
-					b = a;
+				c = M - a;
+				if(c < 0) break;
+				if((M - a) < (M - b)) b = a;
 			}
 	printf("%i", b);
 
