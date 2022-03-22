@@ -26,30 +26,25 @@ int main(void)
 	getchar();
 	if(N < 8 || M < 8 || N > 50 || M > 50) return 1;
 	char board[50][50] = {}; //함수 넣을 때 흐트러져서 바로 잡기 위해 50 넣음
-	int result[(N -7) * (M - 7)];
-	int rei = 0;
+	int result = 64; // 8*8
+	int tmp;
 	for(int i = 0; i < N; i++){
 		for(int j = 0; j < M; j++)
 			scanf("%c", &board[i][j]);
-		getchar();
+		getchar(); // \n 넣기 위한 장치
 	}
 	for(int i = 0; i < (N - 7); i++)
 		for(int j = 0; j < (M - 7); j++){
-			result[rei] = check(i,j,board,ans1,ans2); //Brute force
-			rei++;
+			tmp = check(i,j,board,ans1,ans2); //Brute force
+			if(tmp < result) result = tmp;
 		}
-	int tmp = result[0];
-	for(int i = 0; i < ((N-7)*(M-7)); i++) //최종 결과값 체크
-		if(tmp > result[i]) tmp = result[i];
-
-	printf("%i", tmp);
+	printf("%i", result);
 
 	return 0;
 }
 
 int check(int i,int j,char board[50][50],char ans1[8][8],char ans2[8][8])
 {
-	printf("checking %i %i\n", i,j);
 	int aa = 0, ab = 0, count1 = 0, count2 = 0;
 	for(int a = i;a < (8 + i); a++){
 		ab = 0;
