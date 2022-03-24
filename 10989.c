@@ -10,7 +10,8 @@ int main(void) //counting sort
 	n = (int *)malloc(sizeof(int *) * N);
 	int *result;
 	result = (int *)malloc(sizeof(int *) * N + 1);
-	int cntnum[10000] = {};
+	int *cntnum;
+	cntnum = (int *)malloc(sizeof(int *) * 10000);
 	int tmp;
 	for(int i = 0; i < N; i++)
 		scanf("%i", &n[i]);
