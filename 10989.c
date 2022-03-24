@@ -1,12 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void) //counting sort
 {
 	int N;
 	scanf("%i", &N);
 	if(!(1 <= N && N <= 10000000)) return 1;
-	int n[N];
-	int result[N + 1];
+	int *n;
+	n = (int *)malloc(sizeof(int *) * N);
+	int *result;
+	result = (int *)malloc(sizeof(int *) * N + 1);
 	int cntnum[10000] = {};
 	int tmp;
 	for(int i = 0; i < N; i++)
