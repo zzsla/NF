@@ -11,7 +11,7 @@ int main(void)
 		else if(n[i] == 8 - i) num -= 1;
 	}
 	if(num == 8) printf("ascending");
-	else if(num == -8) printf("desceding");
+	else if(num == -8) printf("descending");
 	else printf("mixed");
 
 	return 0;
