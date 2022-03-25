@@ -11,7 +11,7 @@ int main(void)
 	if(!(1 <= N && N <= 500000 && N%2 == 1)) return 1;
 	int n[N];
 	int tmp; //임시저장소
-	float arithmetic_mean = 0; //산술평균
+	double arithmetic_mean = 0; //산술평균
 	int arithmetic;
 	int median; //중앙값
 	int mode[8001] = {}; //최빈값
