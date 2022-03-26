@@ -1,41 +1,45 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define MAX 100000
 #define MIN -100000
 
-void change(int *a, int *b)
-{
-	int tmp;
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
+int compare(const void *a, const void *b);
 
 int main(void)
 {
 	int N;
 	scanf("%i", &N);
 	if(!(1 <= N && N <= MAX)) return 1;
-	int n[N][2]; // 0: x, 1: y
+	long n[N];
+	long x = 0, y = 0;
 	for(int i = 0; i < N; i++){
-		scanf("%i %i", &n[i][0], &n[i][1]);
-		if(n[i][0] < MIN || n[i][1] < MIN || n[i][0] > MAX || n[i][1] > MAX)
-			return 1;
+		scanf("%li %li", &x, &y);
+		if(x < MIN || y < MIN || x > MAX || y > MAX) return 1;
+		x += MAX;
+	   	x *= 200000;
+		y += MAX;
+		x += y;
+		n[i] = x;
 	}
-	int *tmp;
-	for(int i = 0; i < N - 1; i++)
-		for(int j = i + 1; j < N; j++){
-			if(n[i][0] > n[j][0]){
-				change(&n[i][0], &n[j][0]);
-				change(&n[i][1], &n[j][1]);
-			}
-			else if(n[i][0] == n[j][0])
-				if(n[i][1] > n[j][1]){
-					change(&n[i][0], &n[j][0]);
-					change(&n[i][1], &n[j][1]);
-			}
-		}
-	for(int i = 0; i < N; i++)
-		printf("%i %i\n", n[i][0], n[i][1]);
+	qsort(n, sizeof(n)/sizeof(long), sizeof(long), compare);
 
+	for(int i = 0; i < N; i++){
+		x = n[i] / 200000;
+		y = n[i] % 200000;
+		x -= MAX;
+		y -= MAX;
+		printf("%li %li\n", x, y);
+	}
+
+	return 0;
+}
+
+int compare(const void *a, const void *b)
+{
+	int num1 = *(int *)a;
+	int num2 = *(int *)b;
+
+	if(num1 < num2) return -1;
+	if(num1 > num2) return 1;
 	return 0;
 }
