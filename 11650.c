@@ -16,7 +16,7 @@ int main(void)
 		scanf("%li %li", &x, &y);
 		if(x < MIN || y < MIN || x > MAX || y > MAX) return 1;
 		x += MAX;
-	   	x *= 200000;
+	   	x *= 200001;
 		y += MAX;
 		x += y;
 		n[i] = x;
@@ -24,8 +24,8 @@ int main(void)
 	qsort(n, sizeof(n)/sizeof(long), sizeof(long), compare);
 
 	for(int i = 0; i < N; i++){
-		x = n[i] / 200000;
-		y = n[i] % 200000;
+		x = n[i] / 200001;
+		y = n[i] % 200001;
 		x -= MAX;
 		y -= MAX;
 		printf("%li %li\n", x, y);
@@ -36,8 +36,8 @@ int main(void)
 
 int compare(const void *a, const void *b)
 {
-	int num1 = *(int *)a;
-	int num2 = *(int *)b;
+	long num1 = *(long *)a;
+	long num2 = *(long *)b;
 
 	if(num1 < num2) return -1;
 	if(num1 > num2) return 1;
