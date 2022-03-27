@@ -27,7 +27,7 @@ int main(void)
 	}
 	for(int i = 0; i < 50; i++)
 		count[i+1] += count[i];
-	qsort(string, N, sizeof(char[51]), compare);
+	qsort(string, N, sizeof(string[0]), compare);
 	for(int i = N -1; i >= 0; i--){
 		int j = 0;
 		while(string[i][j] != '\0'){
@@ -47,10 +47,5 @@ int main(void)
 
 int compare(const void *a, const void *b)
 {
-	int num1 = *(char *)a;
-	int num2 = *(char *)b;
-
-	if(num1 > num2) return 1;
-	if(num1 < num2) return -1;
-	return 0;
+	return strcmp((char *)a, (char *)b);
 }
