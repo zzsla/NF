@@ -1,38 +1,86 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int compare(const void *a, const void *b)
+typedef struct data
 {
-	int num1 = *(int *)a;
-	int num2 = *(int *)b;
-	if(num1 > num2) return 1;
-	if(num1 < num2) return -1;
-	return 0;
-}
+	int valve;
+	int *addr;
+}data;
+
+void mergeSort(data n[], int p,int r, int N);
+void merge(data n[], int p, int q, int r, int N);
+
 int main(void)
 {
 	int N;
 	scanf("%i", &N);
 	if(!(1 <= N && N <= 1000000)) return 1;
-	int n[N];
-	unsigned int check[N];
-	int result[2000000001];
-	unsigned int lastnum = 2000000001;
-	int count = 1;
+	int result[N];
+	data n[N];
+	int count = 0;
 	for(int i = 0; i < N; i++){
-		scanf("%i", &n[i]);
-		check[i] = n[i] + 1000000000;
+		scanf("%i", &n[i].valve);
+		n[i].addr = &result[i];
 	}
-	qsort(check, sizeof(check)/sizeof(int), sizeof(int), compare);
-	for(int i = 0; i < N; i++)
-		if(!(lastnum == check[i])){
-			result[check[i]] = count;
+	mergeSort(n, 0, N-1, N);
+	*n[0].addr = 0;
+	for(int i = 0; i < N - 1; i++){
+		int j = i +1;
+		if(n[i].valve == n[j].valve) *n[j].addr = count;
+		else{
 			count++;
-			lastnum = check[i];
+			*n[j].addr = count;
 		}
-
-	for(int i = 0; i < N; i++)
-		printf("%i ", result[n[i]+1000000000] - 1);
+	}
+	for(int i = 0; i < N; i++) printf("%i ", result[i]);
 
 	return 0;
+}
+
+void mergeSort(data n[], int p, int r, int N)
+{
+	int q;
+	if(p<r)
+	{
+		q = (p+r)/2;
+		mergeSort(n, p, q, N);
+		mergeSort(n, q+1, r, N);
+		merge(n, p, q, r, N);
+	}
+}
+void merge(data n[], int p, int q, int r, int N)
+{
+	int i = p, j = q + 1, k = p;
+	data tmp[N];
+	while(i <= q && j <= r)
+	{
+		if(n[i].valve <= n[j].valve){ 
+			tmp[k].valve = n[i].valve;
+			tmp[k].addr = n[i].addr;
+			k++;
+			i++;
+		}
+		else{ 
+			tmp[k].valve = n[j].valve;
+			tmp[k].addr = n[j].addr;
+			k++;
+			j++;
+		}
+	}
+	while(i <= q){
+	   	tmp[k].valve = n[i].valve;
+		tmp[k].addr = n[i].addr;
+		k++;
+		i++;
+	}
+	while(j <= r){
+	   	tmp[k].valve = n[j].valve;
+		tmp[k].addr = n[j].addr;
+		k++;
+		j++;
+	}
+	for(int a = p; a <= r; a++){
+		n[a].valve = tmp[a].valve;
+		n[a].addr = tmp[a].addr;
+	}
 }
